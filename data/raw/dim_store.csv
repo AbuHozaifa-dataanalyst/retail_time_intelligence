@@ -1,0 +1,7 @@
+store_id,store_name,city,region,store_type,open_date
+1,North Mall,Riyadh,North,Mall,2021-06-01
+2,Central Plaza,Jeddah,Central,Mall,2021-01-15
+3,South Retail,Abha,South,Standalone,2022-03-01
+4,North Express,Dammam,North,Standalone,2022-08-15
+5,Online Store,Online,National,Online,2020-01-01
+6,Central Outlet,Mecca,Central,Standalone,2024-02-01
