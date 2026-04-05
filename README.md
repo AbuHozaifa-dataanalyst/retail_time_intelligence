@@ -86,3 +86,5 @@ retail-time-intelligence-sql/
 - Perfect for demonstrating retail analytics skills in a portfolio.  
 - Includes business assumptions and edge cases for realistic analysis.  
 
+
+{\rtf1}
