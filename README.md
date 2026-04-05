@@ -96,7 +96,7 @@ dim_store — fact_sales — dim_product
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/your-username/retail-time-intelligence.git
+git clone https://github.com/AbuHozaifa-dataanlyst/retail-time-intelligence.git
 cd retail-time-intelligence
 2️⃣ Install dependencies (optional)
 pip install -r requirements.txt
