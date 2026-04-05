@@ -1,90 +1,185 @@
-# Retail Time Intelligence SQL Portfolio
+# 🏪 Retail Time Intelligence Analytics Project
 
-## Project Overview
-This project demonstrates advanced **Retail Time Intelligence** using SQL. It simulates a real-world retail business operating multiple stores across different regions and selling multiple products. 
+## 📌 Overview
 
-The goal is to perform **time-based analytics**, including MTD, YTD, MoM, YoY, rolling aggregates, same-store comparisons, and holiday/fiscal analysis — all essential for a retail analyst portfolio.
+This project demonstrates an **end-to-end retail analytics solution** focused on **time intelligence using SQL** and supported by **Python-based data pipelines**.
 
----
+It simulates a real-world analytics environment where raw transactional data is transformed into **business insights** using:
 
-## Dataset
-The project uses a **star schema** with the following tables:
-
-| Table Name   | Description |
-|--------------|-------------|
-| `dim_date`   | Calendar table with daily date info, fiscal periods, holidays, weekends |
-| `dim_store`  | Store dimension with region, city, and store type |
-| `dim_product`| Product dimension with category, sub-category, brand, launch date |
-| `fact_sales` | Fact table with daily sales, quantity, cost, discount, and calculated sales amount |
-
-**CSV files** are stored in the `data/` folder.
+- SQL (core analytics)
+- Python (data pipeline & feature engineering)
+- Data modeling (Star Schema)
+- Data validation (quality checks)
+- Business reporting (insights & recommendations)
 
 ---
 
-## Folder Structure
+## 🎯 Objectives
 
-retail-time-intelligence-sql/
-│
-├── data/ # CSV files
-│ ├── dim_date.csv
-│ ├── dim_store.csv
-│ ├── dim_product.csv
-│ └── fact_sales.csv
-│
-├── sql/ # SQL scripts
-│ ├── 01_create_tables.sql
-│ ├── 02_load_data.sql
-│ ├── 03_time_intelligence_queries.sql
-│ └── 04_cte_window_queries.sql
-│
-├── docs/ # Documentation
-│ ├── business_context.md
-│ ├── data_dictionary.md
-│ └── sql_queries_documentation.md
-│
-├── README.md
-└── LICENSE
+- Analyze retail sales performance over time
+- Build reusable **time intelligence metrics** (MTD, YTD, rolling)
+- Generate **business KPIs** (revenue, profit, growth)
+- Design a **scalable analytics architecture**
+- Ensure **data quality and reliability**
 
+---
+
+## 🧠 Key Concepts Covered
+
+- Time Intelligence (MTD, YTD, Rolling Metrics)
+- Window Functions & CTEs
+- Star Schema Data Modeling
+- ETL Pipeline Design
+- Data Quality Validation
+- Business KPI Analysis
+- Analytical SQL Optimization
+
+---
+
+## 🏗️ Project Architecture
+
+This project follows a **modular and production-style design**:
+
+
+Raw Data → SQL Tables → Transformations → Analytics → Reports → Insights
+
+
+- **SQL Layer** → Core analytics (main focus)
+- **Python Layer** → Data processing & automation
+- **Docs Layer** → Business + technical explanation
+- **Reports Layer** → Final outputs & insights
+
+---
+
+## 📂 Project Structure
+
+
+retail-time-intelligence/
+
+├── src/ # Python analytics layer
+├── sql/ # Core SQL scripts (MAIN FOCUS)
+├── notebooks/ # Exploratory analysis
+├── data/ # Raw & processed data
+├── docs/ # Business + technical documentation
+├── reports/ # Outputs & insights
+├── dashboards/ # BI dashboards (optional)
+├── tests/ # Data quality validation
+├── main.py # Pipeline entry point
+├── requirements.txt
+└── README.md
 
 
 ---
 
-## SQL Scripts
+## 🧾 Data Model (Star Schema)
 
-1. **01_create_tables.sql** – Creates all tables (fact + dimensions) with primary & foreign keys.  
-2. **02_load_data.sql** – Loads CSV files into the SQL database.  
-3. **03_time_intelligence_queries.sql** – Contains 25 advanced time intelligence queries.  
-4. **04_cte_window_queries.sql** – Additional queries demonstrating CTEs, window functions, and rankings.  
+The project uses a **Star Schema**:
+
+- **Fact Table**
+  - `fact_sales` → transactional data
+
+- **Dimension Tables**
+  - `dim_date`
+  - `dim_store`
+  - `dim_product`
+
+     dim_date
+        |
+
+dim_store — fact_sales — dim_product
+
 
 ---
 
-## How to Run
+## ⚙️ How to Run the Project
 
-1. Create a new database in SQL Server (or PostgreSQL/MySQL).  
-2. Open `01_create_tables.sql` and run it to create tables.  
-3. Open `02_load_data.sql` and update CSV paths to match your local folder.  
-4. Run `02_load_data.sql` to load the dataset.  
-5. Explore queries in `03_time_intelligence_queries.sql` for advanced time intelligence insights.
+### 1️⃣ Clone the repository
 
----
+```bash
+git clone https://github.com/your-username/retail-time-intelligence.git
+cd retail-time-intelligence
+2️⃣ Install dependencies (optional)
+pip install -r requirements.txt
+3️⃣ Run the pipeline
+python main.py
+4️⃣ Run SQL scripts
 
-## Key Time Intelligence Metrics
+Execute SQL files in order:
 
-- Daily, Weekly, Monthly, Quarterly, YTD, MTD, QTD sales  
-- Rolling 7, 30, and 90-day aggregates  
-- MoM & YoY growth  
-- Same-store sales comparison  
-- Holiday vs Non-holiday analysis  
-- Fiscal calendar performance  
-- Top products/stores analysis  
+sql/ddl/ → Create tables
+sql/dml/ → Load data
+sql/transformations/ → Create views
+sql/analytics/ → Run analysis
+📊 Key SQL Analyses
+Total Sales by Day / Month
+Month-to-Date (MTD) Sales
+Year-to-Date (YTD) Sales
+Rolling 7-day / 30-day Sales
+Month-over-Month Growth
+Store Performance Ranking
+Product Performance Analysis
+🧪 Data Quality Checks
 
----
+Located in:
 
-## Notes
+tests/data_quality_checks.sql
 
-- Designed for **SQL Server**, minor changes may be needed for PostgreSQL/MySQL.  
-- Perfect for demonstrating retail analytics skills in a portfolio.  
-- Includes business assumptions and edge cases for realistic analysis.  
+Includes:
 
+NULL value checks
+Duplicate detection
+Foreign key validation
+Business rule validation
+📓 Notebooks (Storytelling Layer)
+01_project_overview.ipynb → Business understanding
+02_data_validation.ipynb → Data exploration & cleaning
+03_time_analysis.ipynb → Time-based analytics
+04_business_insights.ipynb → Final insights
+📚 Documentation
 
-{\rtf1}
+Located in docs/:
+
+Business Context
+Data Dictionary
+SQL Query Explanations
+Architecture Design
+Insights
+📈 Key Insights
+Sales peak during weekends and Q4
+A small number of products drive most revenue (Pareto principle)
+Certain stores consistently outperform others
+Growth trends highlight seasonal patterns
+💡 Business Recommendations
+Increase inventory before peak seasons
+Focus marketing on top-performing products
+Improve underperforming store operations
+Use rolling metrics for trend monitoring
+📊 Reports
+
+Located in reports/:
+
+Query outputs (CSV & screenshots)
+Executive summary
+Detailed analysis
+Business recommendations
+🧰 Tech Stack
+SQL (SQL Server / PostgreSQL)
+Python (Pandas, Pathlib)
+Jupyter Notebooks
+Git & GitHub
+Power BI / Tableau (optional)
+🚀 Project Highlights
+End-to-end analytics pipeline
+Real-world retail use case
+Modular and scalable design
+Production-style data validation
+Business-focused insights
+📌 Future Improvements
+Automate pipeline with scheduling (Airflow)
+Add real-time data ingestion
+Integrate cloud data warehouse (Snowflake / BigQuery)
+Enhance dashboard layer
+👤 Author
+
+Abu Hozaifa
+Retail Data Analyst | SQL | Python | Data Analytics
